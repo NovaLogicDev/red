@@ -36,7 +36,7 @@ function setVLCPath() {
         title: "Set VLC location",
         buttonLabel: "Set VLC location",
         properties: ['openFile'],
-        filters: [{ name: 'EXE File', extensions: ['exe'] }]
+        // filters: [{ name: 'EXE File', extensions: ['exe'] }] //TODO
     }).then(function (results) {
         if (!results.canceled) {
             window.localStorage.vlcExePath = results.filePaths[0];

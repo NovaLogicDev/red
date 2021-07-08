@@ -81,7 +81,7 @@ function createWindow() {
       nodeIntegration: true,
       enableRemoteModule: true
     },
-    icon: __dirname + "/favicon.ico",
+    // icon: __dirname + "/favicon.ico",
     title: "Red (beta)",
     autoHideMenuBar: true
   })
@@ -159,7 +159,13 @@ if (!isDev) {
 function discordGame() {
   const Discord = require('discord-game');
   const isRequireDiscord = false;
-  const hasDiscord = Discord.create('749736883096911892', isRequireDiscord);
+  const hasDiscord = (() => {
+    try {
+      return Discord.create('749736883096911892', isRequireDiscord);
+    } catch (e) { 
+      return false;
+    }
+  })
 
   ipcMain.on('discord-activity', (event, arg) => {
     if (hasDiscord) {

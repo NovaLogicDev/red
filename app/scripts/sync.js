@@ -452,6 +452,7 @@ function installModule() {
                     resolve();
                 }
             }, 1000);
+            //TODO: linux: sudo rsync -a <red_dir>/resources/app/patch/ /usr/lib/vlc/
             exec(`"${path.join(__dirname, "copymodule.bat").replace("/", "\\")}" "${path.join(VLC_EXE, "..").replace("/", "\\")}"`);
         }
     })
