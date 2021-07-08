@@ -165,7 +165,7 @@ function discordGame() {
     } catch (e) { 
       return false;
     }
-  })
+  }) //TODO
 
   ipcMain.on('discord-activity', (event, arg) => {
     if (hasDiscord) {

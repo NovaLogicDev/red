@@ -396,12 +396,20 @@ function openVLC() {
             if (e == "vlcComm") {
                 //If unable to communicate with VLC, ask the user to install the module
                 actionNeeded("Install VLC module",
-                    "In order for Red to communicate with VLC, you'll need to install an integration module in VLC.\n\nThe module will only run when you are using Red.", [
+                    `In order for Red to communicate with VLC, you'll need to install an integration module in VLC.
+                    \n
+                    \n
+                    The module will only run when you are using Red.
+                    \n
+                    \n
+                    LINUX: You ned to Manually Install module \n
+                    \n
+                    As root do: sudo rsync -a <red_dir>/resources/app/patch/ /usr/lib/vlc/`, [
                     {
-                        text: "Install module",
+                        text: "Done Installing",
                         icon: "security",
                         action: () => {
-                            installModule().then(() => {
+                            (()=> { return; })().then(() => {
                                 openVLC().then(fResolve).catch(fReject);
                             })
                         }
